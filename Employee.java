@@ -7,11 +7,17 @@ public class Employee {
         int Emp_rate = 20;
         int Emp_hour = 0;
         int Emp_wage = 0;
-        double employe_check = Math.floor(Math.random() * 10) % 2;
+        int part_time = 2;
+        double employe_check = Math.floor(Math.random() * 10) % 3;
         if (employe_check == present) {
             System.out.println("Employe is present" );
             Emp_hour = 8;
-        } else {
+        }
+        else if(part_time == employe_check){
+            System.out.println("Employee is Part time");
+            Emp_hour = 4;
+        }
+        else {
             System.out.println("Employee is absent" );
             Emp_hour = 0;
         }
