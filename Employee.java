@@ -1,21 +1,19 @@
 import javax.swing.*;
 import java.util.*;
-public class Employee {
+class method {
     public static final int present = 1;
     public static final int part_time = 2;
+    int Emp_rate = 20;
+    int Emp_hour = 0;
+    int Emp_wage = 0;
+    int total_Emp_hour = 0;
+    int Max_mum_day = 20;
+    int days = 1;
+    int maximum_hour = 100;
 
-    public static void main(String[] args) {
-        System.out.println("Welcome to employee wage progrsm");
-
-        int Emp_rate = 20;
-        int Emp_hour = 0;
-        int Emp_wage = 0;
-        int total_Emp_hour = 0;
-        int Max_mum_day = 20;
-        int days = 1;
-        int maximum_hour = 100;
-        while (total_Emp_hour<= maximum_hour && days < Max_mum_day){
-            days ++;
+    public void method1() {
+        while (total_Emp_hour <= maximum_hour && days < Max_mum_day) {
+            days++;
 
             int employe_check = (int) Math.floor(Math.random() * 10) % 3;
             switch (employe_check) {
@@ -33,9 +31,17 @@ public class Employee {
                     break;
             }
             total_Emp_hour += Emp_hour;
-            System.out.println("Days : "+ days + " Emp hour: " + Emp_hour);
+            System.out.println("Days : " + days + " Emp hour: " + Emp_hour);
         }
         Emp_wage = total_Emp_hour * Emp_rate;
-        System.out.println("Total Emp wage for 20 days : "+ Emp_wage);
+        System.out.println("Total Emp wage for 20 days : " + Emp_wage);
+    }
+}
+
+public class Employee extends method {
+    public static void main(String[] args) {
+        System.out.println("Welcome to employee wage progrsm");
+        method m1 = new method();
+        m1.method1();
     }
 }
