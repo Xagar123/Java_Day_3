@@ -8,7 +8,7 @@ class method {
     int Emp_wage = 0;
     int total_Emp_hour = 0;
     int Max_mum_day = 20;
-    int days = 1;
+    int days = 0;
     int maximum_hour = 100;
 
     public void method1() {
