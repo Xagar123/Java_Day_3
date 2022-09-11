@@ -1,47 +1,58 @@
-import javax.swing.*;
-import java.util.*;
-class method {
-    public static final int present = 1;
-    public static final int part_time = 2;
-    int Emp_rate = 20;
-    int Emp_hour = 0;
-    int Emp_wage = 0;
-    int total_Emp_hour = 0;
-    int Max_mum_day = 20;
-    int days = 0;
-    int maximum_hour = 100;
+public class Employee {
+    public static final int FULL_TIME = 1;
+    public static final int PART_TIME = 2;
+    public static final int WAGE_PER_HOUR = 20;
+    public static final int WORKING_DAYS = 20;
+    public  static  final int TOTAL_WORKING_HOURS = 100;
 
-    public void method1() {
-        while (total_Emp_hour <= maximum_hour && days < Max_mum_day) {
-            days++;
+    public static void computeEmpWage() {
+        int workingHrs = 0;
+        int empWage = 0;
+        int totalEmpWage = 0;
+        int totalEmpHrs = 0;
+        int totalWorkingDays = 0;
+        int day=1;
 
-            int employe_check = (int) Math.floor(Math.random() * 10) % 3;
-            switch (employe_check) {
-                case present:
-                    //System.out.println("Employee is full time");
-                    Emp_hour = 8;
+
+        while(totalEmpHrs <= TOTAL_WORKING_HOURS && totalWorkingDays < WORKING_DAYS) {
+            totalWorkingDays++;
+            System.out.println("Day-"+(day));
+            int empCheck = (int) (Math.floor(Math.random() * 10) % 3);
+
+            switch (empCheck) {
+
+                case PART_TIME:
+                    workingHrs = 4;
+                    System.out.println("Employee is Present for " + workingHrs + " Hrs");
                     break;
-                case part_time:
-                    //System.out.println("Employee is part time");
-                    Emp_hour = 4;
+
+                case FULL_TIME:
+                    workingHrs = 8;
+                    System.out.println("Employee is Present for " + workingHrs + " Hrs");
                     break;
+
                 default:
-                    //System.out.println("Employee is absent");
-                    Emp_hour = 0;
-                    break;
+                    workingHrs = 0;
+                    System.out.println("Employee is Absent");
             }
-            total_Emp_hour += Emp_hour;
-            System.out.println("Days : " + days + " Emp hour: " + Emp_hour);
-        }
-        Emp_wage = total_Emp_hour * Emp_rate;
-        System.out.println("Total Emp wage for 20 days : " + Emp_wage);
-    }
-}
 
-public class Employee extends method {
+            empWage = workingHrs * WAGE_PER_HOUR;
+            System.out.println("Employee wage is: " + empWage);
+            System.out.println("-----------------------------------");
+            totalEmpWage = totalEmpWage + empWage;
+            totalEmpHrs = totalEmpHrs + workingHrs;
+            day++;
+        }
+        System.out.println("Employee total wage is: "+ totalEmpWage);
+        System.out.println("Employee total Working hours is: "+ totalEmpHrs);
+        System.out.println("Total Days worked By the Employee:" + totalWorkingDays);
+    }
+
+
+
     public static void main(String[] args) {
-        System.out.println("Welcome to employee wage progrsm");
-        method m1 = new method();
-        m1.method1();
+        computeEmpWage();
+
+
     }
 }
